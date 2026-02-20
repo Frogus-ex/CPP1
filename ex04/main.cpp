@@ -5,24 +5,24 @@
 void
 ft_replace (const char *filename, std::string s1, std::string s2)
 {
-  if (s1.empty())
-  {
-    std::cerr << "Error: s1 cannot be empty" << std::endl;
-    return ;
-  }
+  if (s1.empty ())
+    {
+      std::cerr << "Error: s1 cannot be empty" << std::endl;
+      return;
+    }
   std::ifstream fp (filename);
-  if (!fp.is_open())
-  {
-    std::cerr << "Error: cannot open file " << filename << std::endl;
-    return ;
-  }
+  if (!fp.is_open ())
+    {
+      std::cerr << "Error: cannot open file " << filename << std::endl;
+      return;
+    }
   std::string new_filename = std::string (filename) + ".replace";
   std::ofstream out (new_filename.c_str ());
-  if (!out.is_open())
-  {
-    std::cerr << "Error: cannot open file " << new_filename << std::endl;
-    return ;
-  }
+  if (!out.is_open ())
+    {
+      std::cerr << "Error: cannot open file " << new_filename << std::endl;
+      return;
+    }
   std::string line;
   while (std::getline (fp, line))
     {
