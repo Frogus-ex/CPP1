@@ -3,8 +3,7 @@
 int
 main ()
 {
-  int N ;
-  std::cin >> N;
+  int N = 3;
   Zombie *horde = zombieHorde(N, "bob");
   for (int i = 0; i < N; i++)
       horde[i].announce();

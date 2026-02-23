@@ -24,6 +24,7 @@ ft_replace (const char *filename, std::string s1, std::string s2)
       return;
     }
   std::string line;
+  std::string buffer = "";
   while (std::getline (fp, line))
     {
       std::string result = "";
@@ -43,12 +44,18 @@ ft_replace (const char *filename, std::string s1, std::string s2)
               break;
             }
         }
-      out << result << "\n";
+        if (!buffer.empty ())
+          out << buffer << "\n";
+      buffer = result;
     }
+    out << buffer;
 }
 
 int
-main ()
+main (int ac, char **av)
 {
-  ft_replace ("test.txt", "blabla", "");
+  if (ac != 4)
+    std::cout << "Wrong number of args";
+  else
+    ft_replace(av[1], av[2], av[3]);
 }
